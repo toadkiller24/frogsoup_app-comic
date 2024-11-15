@@ -194,7 +194,7 @@ export default function Claim() {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center flex-1 p-4 sm:p-8 text-white mt-8 lg:mt-14 claim-sheet pixel-text">
+    <div className="flex flex-col items-center justify-center flex-1 p-4 sm:p-8 text-white mt-8 lg:mt-14 claim-sheet pixel-text md:overflow-visible overflow-auto mb-14">
       <div className="max-w-3xl w-full relative lg:-rotate-0 -rotate-0 transform transition-transform duration-300">
         <div
           className="absolute inset-[0px] image-rendering-pixelated"

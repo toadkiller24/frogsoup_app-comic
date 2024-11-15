@@ -14,7 +14,7 @@ export default function BurnBackground() {
         loop
         muted
         playsInline
-        className="w-full h-[calc(100%-233px)] object-cover opacity-20"
+        className="w-full md:h-[calc(100%-233px)] h-[100%] object-cover opacity-20"
       >
         <source src="/fire_bg_clean_large.mp4" type="video/mp4" />
       </video>

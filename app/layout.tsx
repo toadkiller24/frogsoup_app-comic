@@ -45,16 +45,16 @@ export default async function RootLayout({
   const cookies = await headers().then((h) => h.get("cookie"));
 
   return (
-    <html lang="en">
+    <html lang="en" className="h-full">
       <body
-        className={`${inter.className} ${roboto.variable} ${openSans.variable} ${playfair.variable} ${memoGold.variable}`}
+        className={`${inter.className} ${roboto.variable} ${openSans.variable} ${playfair.variable} ${memoGold.variable} h-full`}
       >
         <ContextProvider cookies={cookies}>
-          <div className="min-h-screen bg-[#302c2e] flex">
+          <div className="min-h-screen h-full bg-[#302c2e] flex">
             <ContentWrapper>
               <BurnBackground />
               <PixelatedCurve />
-              <div className="relative flex flex-col flex-1">
+              <div className="relative flex flex-col flex-1 h-full md:overflow-visible overflow-auto">
                 <div className="relative z-30">
                   <NavBar />
                 </div>
