@@ -141,7 +141,7 @@ const Menu = () => {
             </Box>
           </Modal>
         </div>
-        <div className="menu-heading mt-2">Menu</div>
+        <div className="menu-heading font-SUPERSCR mt-2">Menu</div>
         <p className="text-center">
           Order some delicious Frog Soup from the menu below!
         </p>

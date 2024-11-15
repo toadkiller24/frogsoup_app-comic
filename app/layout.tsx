@@ -1,4 +1,11 @@
-import { Inter, Roboto_Condensed, Open_Sans, Playfair } from "next/font/google";
+import {
+  Inter,
+  Roboto_Condensed,
+  Open_Sans,
+  Playfair,
+  Pixelify_Sans,
+  Nova_Mono,
+} from "next/font/google";
 import localFont from "next/font/local";
 import "./globals.css";
 import NavBar from "./components/NavBar";
@@ -8,6 +15,8 @@ import ContextProvider from "@/context";
 import PixelatedCurve from "./components/pixelatedcurve";
 import BurnBackground from "./components/BurnBackground";
 import ContentWrapper from "./components/contentwrapper";
+
+/* eslint-disable */
 
 const inter = Inter({ subsets: ["latin"] });
 const roboto = Roboto_Condensed({
@@ -31,11 +40,36 @@ const playfair = Playfair({
   variable: "--font-playfair",
 });
 
+const pixelSerif = Nova_Mono({
+  weight: ["400"],
+  subsets: ["latin"],
+  display: "swap",
+});
+
+const pixelFont = Pixelify_Sans({
+  weight: "400",
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-pixel",
+});
+
 const memoGold = localFont({
   src: "../public/Memo Gold.ttf",
   variable: "--font-memo-gold",
   display: "swap",
 });
+
+const handy00 = localFont({
+  src: "../public/handy00.ttf",
+  display: "swap",
+});
+
+const SUPERSCR = localFont({
+  src: "../public/SUPERSCR.ttf",
+  display: "swap",
+});
+
+console.log(SUPERSCR);
 
 export default async function RootLayout({
   children,
