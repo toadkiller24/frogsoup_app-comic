@@ -62,12 +62,12 @@ const memoGold = localFont({
 //   display: "swap",
 // });
 
-// const SUPERSCR = localFont({
-//   src: "../public/SUPERSCR.ttf",
-//   display: "swap",
-// });
+const SUPERSCR = localFont({
+  src: "../public/SUPERSCR.ttf",
+  display: "swap",
+});
 
-// console.log(SUPERSCR);
+console.log(SUPERSCR);
 
 export default async function RootLayout({
   children,
