@@ -2,7 +2,7 @@
 
 import React, { useEffect, useRef } from "react";
 import { usePathname } from "next/navigation";
-import { getPageColors } from "./Contentwrapper";
+import { getPageColors } from "./contentwrapper";
 
 const easeInOutCubic = (x: number): number => {
   return x < 0.5 ? 4 * x * x * x : 1 - Math.pow(-2 * x + 2, 3) / 2;
@@ -66,6 +66,8 @@ export default function PixelatedCurve() {
             top: "50px",
             height: "300px",
             imageRendering: "pixelated",
+            // imageRendering: "-moz-crisp-edges",
+            // imageRendering: "crisp-edges",
           }}
         />
       </div>
