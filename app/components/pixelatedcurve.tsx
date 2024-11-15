@@ -66,8 +66,6 @@ export default function PixelatedCurve() {
             top: "50px",
             height: "300px",
             imageRendering: "pixelated",
-            // imageRendering: "-moz-crisp-edges",
-            // imageRendering: "crisp-edges",
           }}
         />
       </div>

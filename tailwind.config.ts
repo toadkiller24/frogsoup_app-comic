@@ -13,9 +13,9 @@ const config: Config = {
       },
       fontFamily: {
         roboto: ["var(--font-roboto-condensed)"],
-        'open-sans': ["var(--font-open-sans)"],
+        "open-sans": ["var(--font-open-sans)"],
         playfair: ["var(--font-playfair)"],
-        'memo-gold': ["var(--font-memo-gold)"],
+        "memo-gold": ["var(--font-memo-gold)"],
       },
     },
   },
