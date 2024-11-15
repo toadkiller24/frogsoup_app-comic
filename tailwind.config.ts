@@ -17,6 +17,7 @@ const config: Config = {
         playfair: ["var(--font-playfair)"],
         "memo-gold": ["var(--font-memo-gold)"],
         pixelify: ["Pixelify Sans", "sans-serif"],
+        SUPERSCR: ["SUPERSCR", "sans-serif"],
       },
     },
   },
