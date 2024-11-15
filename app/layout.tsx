@@ -1,14 +1,13 @@
-import type { Metadata } from "next";
-import { Inter, Roboto_Condensed, Open_Sans, Playfair, Pixelify_Sans, Nova_Mono } from "next/font/google";
-import localFont from 'next/font/local';
+import { Inter, Roboto_Condensed, Open_Sans, Playfair } from "next/font/google";
+import localFont from "next/font/local";
 import "./globals.css";
 import NavBar from "./components/NavBar";
 import Footer from "./components/Footer";
 import { headers } from "next/headers";
 import ContextProvider from "@/context";
-import PixelatedCurve from './components/PixelatedCurve';
-import BurnBackground from './components/BurnBackground';
-import ContentWrapper from './components/ContentWrapper';
+import PixelatedCurve from "./components/pixelatedcurve";
+import BurnBackground from "./components/BurnBackground";
+import ContentWrapper from "./components/contentwrapper";
 
 const inter = Inter({ subsets: ["latin"] });
 const roboto = Roboto_Condensed({
@@ -32,45 +31,24 @@ const playfair = Playfair({
   variable: "--font-playfair",
 });
 
-const pixelSerif = Nova_Mono({
-  weight: ['400'],
-  subsets: ['latin'],
-  display: 'swap',
-})
-
-const pixelFont = Pixelify_Sans({
-  weight: '400',
-  subsets: ['latin'],
-  display: 'swap',
-  variable: '--font-pixel',
-})
-
 const memoGold = localFont({
-  src: '../public/Memo Gold.ttf',
-  variable: '--font-memo-gold',
-  display: 'swap',
-});
-
-const handy00 = localFont({
-  src: '../public/handy00.ttf',
-  display: 'swap',
-});
-
-const SUPERSCR = localFont({
-  src: '../public/SUPERSCR.ttf',
-  display: 'swap',
+  src: "../public/Memo Gold.ttf",
+  variable: "--font-memo-gold",
+  display: "swap",
 });
 
 export default async function RootLayout({
-  children
+  children,
 }: {
-  children: React.ReactNode
+  children: React.ReactNode;
 }) {
   const cookies = await headers().then((h) => h.get("cookie"));
-  
+
   return (
     <html lang="en">
-      <body className={`${inter.className} ${roboto.variable} ${openSans.variable} ${playfair.variable} ${memoGold.variable}`}>
+      <body
+        className={`${inter.className} ${roboto.variable} ${openSans.variable} ${playfair.variable} ${memoGold.variable}`}
+      >
         <ContextProvider cookies={cookies}>
           <div className="min-h-screen bg-[#302c2e] flex">
             <ContentWrapper>
@@ -80,11 +58,11 @@ export default async function RootLayout({
                 <div className="relative z-30">
                   <NavBar />
                 </div>
-              
+
                 <div className="relative z-20 max-w-5xl mx-auto flex-1">
                   {children}
                 </div>
-              
+
                 <div className="relative z-10 mt-auto">
                   <Footer />
                 </div>
