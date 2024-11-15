@@ -149,9 +149,9 @@ const Menu = () => {
           A limited number of servings available, so get them while they&apos;re
           hot!
         </p>
-        <div className="w-full sold-meter-outer overflow-hidden mt-3 mb-2">
-          <div className="sold-meter-inner h-6" style={{ width: "36%" }}>
-            <div className="meter-counter">
+        <div className="w-full  sold-meter-outer overflow-hidden mt-3 mb-2">
+          <div className="sold-meter-inner h-6" style={{ width: "44%" }}>
+            <div className="meter-counter ">
               <span data-numbers>
                 {minted ? minted : "-"}&nbsp;/&nbsp;5029{" "}
               </span>
