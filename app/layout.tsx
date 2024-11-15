@@ -14,7 +14,7 @@ import { headers } from "next/headers";
 import ContextProvider from "@/context";
 import PixelatedCurve from "./components/PixelatedCurve";
 import BurnBackground from "./components/BurnBackground";
-import ContentWrapper from "./components/contentwrapper";
+import ContentWrapper from "./components/Contentwrapper";
 
 const inter = Inter({ subsets: ["latin"] });
 const roboto = Roboto_Condensed({

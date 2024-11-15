@@ -2,7 +2,7 @@
 
 import React, { useEffect, useRef } from "react";
 import { usePathname } from "next/navigation";
-import { getPageColors } from "./contentwrapper";
+import { getPageColors } from "./Contentwrapper";
 
 const easeInOutCubic = (x: number): number => {
   return x < 0.5 ? 4 * x * x * x : 1 - Math.pow(-2 * x + 2, 3) / 2;
