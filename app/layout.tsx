@@ -65,7 +65,7 @@ const handy00 = localFont({
 });
 
 const SUPERSCR = localFont({
-  src: "../public/SUPERSCR.ttf",
+  src: "../public/super.ttf",
   display: "swap",
 });
 
