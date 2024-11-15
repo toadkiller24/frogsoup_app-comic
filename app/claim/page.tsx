@@ -51,7 +51,7 @@ export default function Claim() {
       if (mintStatus) {
       }
     } catch (e) {
-      alert("You dont own this token  ID");
+      alert("Token already minted");
       console.log(e);
     }
   };
@@ -187,7 +187,8 @@ export default function Claim() {
         )}
 
         <p className="text-sm text-[#5a5353] text-center sm:text-left">
-          Multiple soups can be claimed by adding multiple IDs
+          Multiple soups can be claimed by adding multiple IDs in the format
+          &quot;<span data-numbers>0001</span>&quot;.
         </p>
       </div>
     );
@@ -226,8 +227,9 @@ export default function Claim() {
                   OG Soups can be claimed here.
                 </p>
                 <p className="mb-4 sm:mb-6 text-center md:text-left">
-                  The matching V2 Soup will be delivered with the addition of a
-                  Golden Soup badge to signify early support.
+                  The V1 Soup will be checked, and the matching V2 Soup will be
+                  delivered with the addition of a Golden Soup badge to signify
+                  early support.
                 </p>
               </div>
             </div>
