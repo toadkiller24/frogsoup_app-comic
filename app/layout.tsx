@@ -64,12 +64,10 @@ const handy00 = localFont({
   display: "swap",
 });
 
-const SUPERSCR = localFont({
-  src: "../public/SUPERSCR.ttf",
-  display: "swap",
-});
-
-console.log(SUPERSCR);
+// const SUPERSCR = localFont({
+//   src: "../public/SUPERSCR.ttf",
+//   display: "swap",
+// });
 
 export default async function RootLayout({
   children,
