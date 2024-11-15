@@ -16,6 +16,7 @@ const config: Config = {
         "open-sans": ["var(--font-open-sans)"],
         playfair: ["var(--font-playfair)"],
         "memo-gold": ["var(--font-memo-gold)"],
+        pixelify: ["Pixelify Sans", "sans-serif"],
       },
     },
   },

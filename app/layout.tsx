@@ -3,8 +3,8 @@ import {
   Roboto_Condensed,
   Open_Sans,
   Playfair,
-  Pixelify_Sans,
-  Nova_Mono,
+  // Pixelify_Sans,
+  // Nova_Mono,
 } from "next/font/google";
 import localFont from "next/font/local";
 import "./globals.css";
@@ -37,19 +37,19 @@ const playfair = Playfair({
   display: "swap",
   variable: "--font-playfair",
 });
-/* eslint-disable */
-const pixelSerif = Nova_Mono({
-  weight: ["400"],
-  subsets: ["latin"],
-  display: "swap",
-});
 
-const pixelFont = Pixelify_Sans({
-  weight: "400",
-  subsets: ["latin"],
-  display: "swap",
-  variable: "--font-pixel",
-});
+// const pixelSerif = Nova_Mono({
+//   weight: ["400"],
+//   subsets: ["latin"],
+//   display: "swap",
+// });
+
+// const pixelFont = Pixelify_Sans({
+//   weight: "400",
+//   subsets: ["latin"],
+//   display: "swap",
+//   variable: "--font-pixel",
+// });
 
 const memoGold = localFont({
   src: "../public/Memo Gold.ttf",
@@ -57,15 +57,17 @@ const memoGold = localFont({
   display: "swap",
 });
 
-const handy00 = localFont({
-  src: "../public/handy00.ttf",
-  display: "swap",
-});
+// const handy00 = localFont({
+//   src: "../public/handy00.ttf",
+//   display: "swap",
+// });
 
 const SUPERSCR = localFont({
   src: "../public/SUPERSCR.ttf",
   display: "swap",
 });
+
+console.log(SUPERSCR);
 
 export default async function RootLayout({
   children,
