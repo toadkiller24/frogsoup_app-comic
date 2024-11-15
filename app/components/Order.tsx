@@ -6,6 +6,7 @@ import Image from "next/image";
 interface SocialLink {
   key: string;
   href: string;
+  target: string;
   size: number;
   alt: string;
   isHovered: boolean;
@@ -21,6 +22,7 @@ export default function Order() {
     {
       key: "telegram",
       href: "https://t.me/thetoadkiller",
+      target: "_blank",
       size: 15,
       alt: "Telegram",
       isHovered: isTelegramHovered,
@@ -28,7 +30,8 @@ export default function Order() {
     },
     {
       key: "opensea",
-      href: "/opensea-link",
+      href: "https://opensea.io/collection/frog-soup-remastered",
+      target: "_blank",
       size: 16,
       alt: "OpenSea",
       isHovered: isOpenseaHovered,
@@ -37,6 +40,7 @@ export default function Order() {
     {
       key: "etherscan",
       href: "https://etherscan.io/token/0xbaf794efdc94531e24b658475ad46ab20abd9cb8",
+      target: "_blank",
       size: 16,
       alt: "Etherscan",
       isHovered: isEtherscanHovered,
