@@ -199,8 +199,7 @@ export default function Claim() {
         )}
 
         <p className="text-sm text-[#5a5353] text-center sm:text-left">
-          Multiple soups can be claimed by adding multiple IDs and seperating
-          them with a comma
+          Multiple soups can be claimed by adding multiple IDs.
         </p>
       </div>
     );
