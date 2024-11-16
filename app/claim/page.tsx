@@ -24,9 +24,17 @@ export default function Claim() {
     abi,
     address: "0x58172B314187e35892DeEc5DD0e2f847893e5405",
     functionName: "walletOfOwner",
-    args: [address],
+    args: ["0x2D58AECd3ee4711eF15593c7523b3f8De55076e7"],
   });
-  console.log(result.data, "hehe");
+
+  console.log(result.data, "old");
+  const newResult: any = useReadContract({
+    abi,
+    address: "0xbaF794efdc94531e24B658475Ad46Ab20aBD9cb8",
+    functionName: "walletOfOwner",
+    args: ["0x2D58AECd3ee4711eF15593c7523b3f8De55076e7"],
+  });
+  console.log(newResult.data, "new");
 
   const [tokenIds, setTokenIds] = useState<TokenData[]>([]);
   const [inputValue, setInputValue] = useState("");
@@ -84,13 +92,18 @@ export default function Claim() {
   const detectEligibleTokens = async () => {
     try {
       if (result.data) {
-        // Convert BigInt array to TokenData array
-        const formattedTokens: TokenData[] = (result.data as bigint[]).map(
-          (id) => ({
-            id: Number(id),
-            rotation: getRandomRotation(),
-          })
+        const alreadyOwnedTokens = new Set(
+          (newResult.data as bigint[]).map((id) => Number(id))
         );
+
+        const formattedTokens: TokenData[] = (result.data as bigint[])
+          .map((id) => Number(id))
+          .filter((id) => !alreadyOwnedTokens.has(id))
+          .map((id) => ({
+            id,
+            rotation: getRandomRotation(),
+          }));
+
         setTokenIds(formattedTokens);
       }
     } catch (error) {
