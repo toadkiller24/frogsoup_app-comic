@@ -52,7 +52,7 @@ const Menu = () => {
   const Newresult = useReadContract({
     abi,
     address: "0xbaF794efdc94531e24B658475Ad46Ab20aBD9cb8",
-    functionName: "totalSupply",
+    functionName: "totalSupplyMinted",
   });
 
   useEffect(() => {
