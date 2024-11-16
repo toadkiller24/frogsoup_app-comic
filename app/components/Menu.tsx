@@ -49,6 +49,11 @@ const Menu = () => {
     address: "0x58172B314187e35892DeEc5DD0e2f847893e5405",
     functionName: "totalSupply",
   });
+  const Newresult = useReadContract({
+    abi,
+    address: "0xbaF794efdc94531e24B658475Ad46Ab20aBD9cb8",
+    functionName: "totalSupply",
+  });
 
   useEffect(() => {
     const timer = setTimeout(() => setHasLoaded(true), 0);
@@ -56,8 +61,12 @@ const Menu = () => {
   }, []);
 
   useEffect(() => {
-    setMinted(result.data ? Number(result.data) - 3 : undefined);
-  }, [result.data]);
+    const oldSupply = result.data ? Number(result.data) : 0;
+    console.log("oldSupply", oldSupply);
+    const newSupply = Newresult.data ? Number(Newresult.data) : 0;
+    console.log("newSupply", newSupply);
+    setMinted(oldSupply + newSupply);
+  }, [result.data, Newresult.data]);
 
   const checkBalance = (requiredAmount: string) => {
     if (!balance.data?.value) {
