@@ -19,12 +19,14 @@ export default function Claim() {
   const modal = useContext(ModalContext);
   const inputRef = useRef<HTMLInputElement>(null);
 
-  const result = useReadContract({
+  /* eslint-disable */
+  const result: any = useReadContract({
     abi,
     address: "0x58172B314187e35892DeEc5DD0e2f847893e5405",
-    functionName: "balanceOf",
+    functionName: "walletOfOwner",
     args: [address],
   });
+  console.log(result.data, "hehe");
 
   const [tokenIds, setTokenIds] = useState<TokenData[]>([]);
   const [inputValue, setInputValue] = useState("");
@@ -49,6 +51,7 @@ export default function Claim() {
         args: [tokenIds.map((token) => token.id)],
       });
       if (mintStatus) {
+        // Handle successful mint
       }
     } catch (e) {
       alert("Token already minted");
@@ -78,21 +81,22 @@ export default function Claim() {
     setTokenIds((prev) => prev.filter(({ id }) => id !== idToRemove));
   };
 
-  // const detectEligibleTokens = async () => {
-  //   try {
-  //     const eligibleTokens = [
-  //       /* Get eligible tokens from contract */
-  //     ];
-  //     setTokenIds(
-  //       eligibleTokens.map((id) => ({
-  //         id,
-  //         rotation: getRandomRotation(),
-  //       }))
-  //     );
-  //   } catch (error) {
-  //     console.error("Error detecting eligible tokens:", error);
-  //   }
-  // };
+  const detectEligibleTokens = async () => {
+    try {
+      if (result.data) {
+        // Convert BigInt array to TokenData array
+        const formattedTokens: TokenData[] = (result.data as bigint[]).map(
+          (id) => ({
+            id: Number(id),
+            rotation: getRandomRotation(),
+          })
+        );
+        setTokenIds(formattedTokens);
+      }
+    } catch (error) {
+      console.error("Error detecting eligible tokens:", error);
+    }
+  };
 
   const renderContent = () => {
     if (!address) {
@@ -111,15 +115,12 @@ export default function Claim() {
       );
     }
 
-    if (result.data === BigInt(0)) {
+    if (result.data?.length === 0) {
       return (
         <div className="text-center">
           <h2 className="text-xl sm:text-2xl mb-4">
             You don&apos;t have any eligible soups to claim
           </h2>
-          {/* <Link href="/" className="text-[#e6482e] underline block">
-            Go mint some here!
-          </Link> */}
         </div>
       );
     }
@@ -128,12 +129,12 @@ export default function Claim() {
       <div className="space-y-3 sm:space-y-4">
         <div className="flex flex-col sm:flex-row justify-between items-center gap-3 mb-4">
           <h2 className="text-lg sm:text-xl text-[#302c2e]">Input Token IDs</h2>
-          {/* <button
+          <button
             onClick={detectEligibleTokens}
             className="w-full sm:w-auto px-4 py-2 bg-[#564064] hover:bg-[#39314b] transition-colors text-sm"
           >
             Auto-fill eligible tokens
-          </button> */}
+          </button>
         </div>
 
         <form onSubmit={handleAddToken} className="flex gap-2">
@@ -155,7 +156,7 @@ export default function Claim() {
         </form>
 
         {tokenIds.length > 0 && (
-          <>
+          <div>
             <div className="flex flex-wrap gap-2">
               {tokenIds.map(({ id, rotation }) => (
                 <div
@@ -177,13 +178,13 @@ export default function Claim() {
             </div>
 
             <button
-              className="w-full px-6 py-2 bg-[#39314b] hover:bg-[#564064] transition-colors"
-              onClick={() => handleClaim()}
+              className="w-full px-6 py-2 bg-[#39314b] hover:bg-[#564064] transition-colors mt-4"
+              onClick={handleClaim}
             >
               CLAIM <span data-numbers>{tokenIds.length}</span> SOUP
               {tokenIds.length !== 1 ? "S" : ""}
             </button>
-          </>
+          </div>
         )}
 
         <p className="text-sm text-[#5a5353] text-center sm:text-left">
