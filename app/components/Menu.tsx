@@ -61,7 +61,7 @@ const Menu = () => {
   }, []);
 
   useEffect(() => {
-    const oldSupply = result.data ? Number(result.data) : 0;
+    const oldSupply = result.data ? Number(result.data) - 3 : 0;
     console.log("oldSupply", oldSupply);
     const newSupply = Newresult.data ? Number(Newresult.data) : 0;
     console.log("newSupply", newSupply);
