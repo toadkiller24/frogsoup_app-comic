@@ -38,7 +38,7 @@ export default function Burn() {
         address: "0xB09F884d48543ee12Ebbeb0E565FdECc8077EC32",
       });
       const deadBalance = await getBalance(config, {
-        address: "0xB09F884d48543ee12Ebbeb0E565FdECc8077EC32",
+        address: "0x000000000000000000000000000000000000dEaD",
         token: "0x370a366f402e2e41cdbbe54ecec12aae0cce1955",
       });
 
