@@ -33,7 +33,7 @@ export default function Burn() {
   });
 
   const readableBalance = result.data?.value
-    ? formatUnits(result.data.value, 18)
+    ? formatUnits(result.data.value, 18).split(".")[0]
     : "0";
 
   console.log(readableBalance);
