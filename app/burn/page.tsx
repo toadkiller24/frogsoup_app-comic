@@ -2,9 +2,6 @@
 
 import { useEffect, useState } from "react";
 import { useWriteContract, useAccount, useBalance } from "wagmi";
-import { createConfig, http } from "@wagmi/core";
-import { mainnet } from "@wagmi/core/chains";
-import { getBalance } from "@wagmi/core";
 import { abi } from "../ABI/ABI";
 import { useContext } from "react";
 import { ModalContext } from "./../../context/index";
