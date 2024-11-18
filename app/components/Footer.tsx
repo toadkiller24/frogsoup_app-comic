@@ -16,6 +16,7 @@ interface FooterLink {
 
 export default function Footer() {
   const pathname = usePathname();
+
   const isDark = pathname === "/burn";
 
   const [isPixelsByComicHovered, setIsPixelsByComicHovered] = useState(false);
