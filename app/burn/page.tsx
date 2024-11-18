@@ -8,7 +8,7 @@ import { getBalance } from "@wagmi/core";
 import { abi } from "../ABI/ABI";
 import { useContext } from "react";
 import { ModalContext } from "./../../context/index";
-import { parseUnits } from "viem";
+import { formatUnits } from "viem";
 
 const BURN_PHRASES = [
   "BURN, BURN, BURN!",
@@ -33,7 +33,7 @@ export default function Burn() {
   });
 
   const readableBalance = result.data?.value
-    ? parseUnits(result.data.value.toString(), 18).toString()
+    ? formatUnits(result.data.value, 18)
     : "0";
 
   console.log(readableBalance);
@@ -73,7 +73,7 @@ export default function Burn() {
   return (
     <div className="flex items-center justify-center flex-1 text-white flex-col gap-4 text-base sm:text-lg md:text-2xl text-center px-4 sm:px-8 pixel-text mt-32 md:overflow-visible overflow-auto">
       <div className="text-[#f47e1b] max-w-full">
-        <div className="flex items-center justify-center mb-4 flex-col lg:flex-row lg:items-center lg:justify-center">
+        <div className="flex  items-center justify-center mb-4 flex-col lg:flex-row lg:items-center lg:justify-center">
           <span
             className="text-[#a93b3b] text-4xl sm:text-6xl md:text-8xl"
             data-numbers
