@@ -26,7 +26,7 @@ export default function Footer() {
   const links: FooterLink[] = [
     {
       key: "opensea",
-      href: "https://opensea.io/collection/frog-soup-remastered",
+      href: "https://opensea.io/collection/frog-soup-reheated",
       target: "_blank",
       label: "Opensea",
       iconSize: 16,
