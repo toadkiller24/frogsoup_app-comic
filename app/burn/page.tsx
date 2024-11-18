@@ -1,13 +1,14 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { useWriteContract, useAccount } from "wagmi";
+import { useWriteContract, useAccount, useBalance } from "wagmi";
 import { createConfig, http } from "@wagmi/core";
 import { mainnet } from "@wagmi/core/chains";
 import { getBalance } from "@wagmi/core";
 import { abi } from "../ABI/ABI";
 import { useContext } from "react";
 import { ModalContext } from "./../../context/index";
+import { ethers } from "ethers";
 
 const BURN_PHRASES = [
   "BURN, BURN, BURN!",
@@ -25,29 +26,13 @@ export default function Burn() {
   const [balance, setBalance] = useState<any | undefined>(undefined);
   const [deadBalance, setDeadBalance] = useState<any | undefined>(undefined);
   /* eslint-enable */
-  useEffect(() => {
-    const fetchBalance = async () => {
-      const config = createConfig({
-        chains: [mainnet],
-        transports: {
-          [mainnet.id]: http("https://eth.llamarpc.com"),
-        },
-      });
 
-      const balance = await getBalance(config, {
-        address: "0xB09F884d48543ee12Ebbeb0E565FdECc8077EC32",
-      });
-      const deadBalance = await getBalance(config, {
-        address: "0x000000000000000000000000000000000000dEaD",
-        token: "0x370a366f402e2e41cdbbe54ecec12aae0cce1955",
-      });
+  const result = useBalance({
+    address: "0x000000000000000000000000000000000000dEaD",
+    token: "0x370a366f402e2e41CDBbE54EcEC12aaE0cce1955",
+  });
 
-      setBalance(balance);
-      setDeadBalance(deadBalance);
-    };
-
-    fetchBalance();
-  }, []);
+  console.log(result.data?.value);
 
   useEffect(() => {
     const lastPhrase = localStorage.getItem("lastBurnPhrase");
@@ -89,10 +74,10 @@ export default function Burn() {
             className="text-[#a93b3b] text-4xl sm:text-6xl md:text-8xl"
             data-numbers
           >
-            {deadBalance?.formatted ? deadBalance.formatted : "0"}
+            {readableBalance}
           </span>
           <div className="flex sm:flex-row lg:flex-col lg:items-start lg:ml-4 text-[#a93b3b] text-3xl md:text-3xl mt-2 sm:mt-0 lg:mt-2">
-            <span>$TOAD&nbsp;</span>
+            <span> $TOAD&nbsp;</span>
             <span>BURNED</span>
           </div>
         </div>
