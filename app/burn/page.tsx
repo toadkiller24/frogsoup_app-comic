@@ -8,7 +8,7 @@ import { getBalance } from "@wagmi/core";
 import { abi } from "../ABI/ABI";
 import { useContext } from "react";
 import { ModalContext } from "./../../context/index";
-import { ethers } from "ethers";
+import { parseUnits } from "viem";
 
 const BURN_PHRASES = [
   "BURN, BURN, BURN!",
@@ -32,7 +32,11 @@ export default function Burn() {
     token: "0x370a366f402e2e41CDBbE54EcEC12aaE0cce1955",
   });
 
-  console.log(result.data?.value);
+  const readableBalance = result.data?.value
+    ? parseUnits(result.data.value.toString(), 18).toString()
+    : "0";
+
+  console.log(readableBalance);
 
   useEffect(() => {
     const lastPhrase = localStorage.getItem("lastBurnPhrase");
