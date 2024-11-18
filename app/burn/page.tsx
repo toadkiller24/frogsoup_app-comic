@@ -35,10 +35,10 @@ export default function Burn() {
       });
 
       const balance = await getBalance(config, {
-        address: "0xbaF794efdc94531e24B658475Ad46Ab20aBD9cb8",
+        address: "0xB09F884d48543ee12Ebbeb0E565FdECc8077EC32",
       });
       const deadBalance = await getBalance(config, {
-        address: "0xbaF794efdc94531e24B658475Ad46Ab20aBD9cb8",
+        address: "0xB09F884d48543ee12Ebbeb0E565FdECc8077EC32",
         token: "0x370a366f402e2e41cdbbe54ecec12aae0cce1955",
       });
 
@@ -69,7 +69,7 @@ export default function Burn() {
 
     try {
       const mintStatus = await writeContractAsync({
-        address: "0xbaF794efdc94531e24B658475Ad46Ab20aBD9cb8",
+        address: "0xB09F884d48543ee12Ebbeb0E565FdECc8077EC32",
         abi,
         functionName: "getToads",
       });

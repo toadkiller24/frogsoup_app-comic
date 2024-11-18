@@ -35,7 +35,7 @@ export default function Footer() {
     },
     {
       key: "etherscan",
-      href: "https://etherscan.io/token/0xbaf794efdc94531e24b658475ad46ab20abd9cb8",
+      href: "https://etherscan.io/token/0xB09F884d48543ee12Ebbeb0E565FdECc8077EC32",
       target: "_blank",
       label: "Etherscan",
       iconSize: 16,

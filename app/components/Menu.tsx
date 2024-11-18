@@ -51,7 +51,7 @@ const Menu = () => {
   });
   const Newresult = useReadContract({
     abi,
-    address: "0xbaF794efdc94531e24B658475Ad46Ab20aBD9cb8",
+    address: "0xB09F884d48543ee12Ebbeb0E565FdECc8077EC32",
     functionName: "totalSupplyMinted",
   });
 
@@ -94,7 +94,7 @@ const Menu = () => {
     handleOpen();
     try {
       const mintStatus = await writeContractAsync({
-        address: "0xbaF794efdc94531e24B658475Ad46Ab20aBD9cb8",
+        address: "0xB09F884d48543ee12Ebbeb0E565FdECc8077EC32",
         abi,
         functionName,
         value: parseEther(price),
